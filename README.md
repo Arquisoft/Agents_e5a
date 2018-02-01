@@ -11,10 +11,19 @@ Skeleton of participants module
 
 # Authors
 
-- David Lorenzo González (UO244795)
-- Martín Peláez Díaz (UO236974)
-- Laura Menéndez Pérez (UO244646)
-- Fernando Palazuelo Ginzo (UO244588)
+  Curso 2016/17:
+
+  - David Lorenzo González (UO244795)
+  - Martín Peláez Díaz (UO236974)
+  - Laura Menéndez Pérez (UO244646)
+  - Fernando Palazuelo Ginzo (UO244588)
+
+  Curso 2017/18:
+  
+  - Miguel Villademoros García (UO251836)
+  - Guillermo Díaz Pérez (UO251327)
+  - Alvaro Camporro Ayala (UO251572)
+  - Jesús Fernández Velasco (UO250914)
 
 
 Usuarios de prueba para la aplicación:

@@ -1,7 +1,5 @@
 package asw.dbManagement.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -127,6 +125,22 @@ public class Participant {
 //	public void setPolitician(boolean isPolitician) {
 //		this.isPolitician = isPolitician;
 //	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public int getKindCode() {
+		return kindCode;
+	}
+
+	public void setKindCode(int kindCode) {
+		this.kindCode = kindCode;
+	}
 
 	@Override
 	public int hashCode() {

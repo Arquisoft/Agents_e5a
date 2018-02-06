@@ -4,14 +4,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import asw.dbManagement.model.Participant;
-import asw.participants.util.Utilidades;
 
 @XmlRootElement(name = "participant")
 public class RespuestaInfoREST {	
 	
 	private String firstName;
-	private String lastName;
-	private int edad;
 	private String ID;
 	private String email;
 	
@@ -19,8 +16,6 @@ public class RespuestaInfoREST {
 	
 	public RespuestaInfoREST(Participant participant){
 		setFirstName(participant.getNombre());
-		setLastName(participant.getApellidos());
-		setEdad(Utilidades.getEdad(participant.getFechaNacimiento()));
 		setID(participant.getDNI());
 		setEmail(participant.getEmail());
 //		this.firstName = participant.getNombre();
@@ -39,23 +34,8 @@ public class RespuestaInfoREST {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
+	
 
-	@XmlElement
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public int getEdad() {
-		return edad;
-	}
-
-	@XmlElement
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
 
 	public String getID() {
 		return ID;

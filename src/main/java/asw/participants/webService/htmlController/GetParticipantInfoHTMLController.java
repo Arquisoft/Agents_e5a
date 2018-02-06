@@ -29,17 +29,19 @@ public class GetParticipantInfoHTMLController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String getLogin(HttpSession session, @RequestParam String email, @RequestParam String password,
+	public String getLogin(HttpSession session, @RequestParam String email, @RequestParam String password, @RequestParam String kind,
 			Model model) {
 
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
 		Assert.isPasswordEmpty(password);
+		Assert.isKindNull(kind);
 
 		Participant participant = getParticipant.getParticipant(email);
 
 		Assert.isParticipantNull(participant);
 		Assert.isPasswordCorrect(password, participant);
+		Assert.isKindCorrect(kind,participant);
 
 		session.setAttribute("participant", participant);
 		

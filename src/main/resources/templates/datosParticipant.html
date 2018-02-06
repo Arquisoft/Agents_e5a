@@ -14,10 +14,11 @@
 	</form>
 	
 	<p><strong>Nombre:</strong> <span th:text="${session.participant.nombre}"></span></p>
-	<p><strong>Apellidos:</strong> <span th:text="${session.participant.apellidos}"></span></p>
 	<p><strong>DNI:</strong> <span th:text="${session.participant.DNI}"></span></p>
-	<p><strong>Edad:</strong> <span th:text="${session.edad}"></span></p>
-	<p><strong>Direccion:</strong> <span th:text="${session.participant.direccion}"></span></p>
+	<p><strong>Email:</strong> <span th:text="${session.participant.email}"></span></p>
+	<p><strong>Id:</strong> <span th:text="${session.participant.id}"></span></p>
+	<p><strong>Kind:</strong> <span th:text="${session.participant.kind}"></span></p>
+	<p><strong>KindCode:</strong> <span th:text="${session.participant.kindCode}"></span></p>
 	
 	<i><span th:if="${info != null}" th:text="${info}">Info</span></i>
 	

@@ -74,4 +74,19 @@ public class Assert {
 		}
 		return true;
 	}
+	
+	public static boolean isKindNull(String kind){
+		if (kind == null) {
+			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
+		}
+		return false;		
+	}
+
+	public static boolean isKindCorrect(String kind, Participant participant) 
+	{
+		if (!kind.equals(participant.getKind())) {
+			throw ErrorFactory.getError(Errors.INCORRECT_KIND);
+		}
+		return true;
+	}
 }

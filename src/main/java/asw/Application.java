@@ -8,10 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import asw.dbManagement.model.Participant;
 import asw.dbManagement.repository.ParticipantRepository;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

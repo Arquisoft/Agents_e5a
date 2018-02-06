@@ -80,10 +80,10 @@ public class MainTest {
 	public void T2domainModelToString() {
 		Participant participant1 = getParticipant.getParticipant("paco@hotmail.com");
 		assertEquals(participant1.toString(),
-				"Participant [nombre=" + participant1.getNombre() + ", apellidos=" + participant1.getApellidos()
-						+ ", fechaNacimiento=" + participant1.getFechaNacimiento() + ", email="
-						+ participant1.getEmail() + ", DNI=" + participant1.getDNI() + ", direccion="
-						+ participant1.getDireccion() + ", nacionalidad=" + participant1.getNacionalidad() + ", isAdmin=false, isPolitician=false]");
+				"Participant [id=" + participant1.getId() + ", nombre=" + participant1.getNombre() 
+				+ ", password=" + participant1.getPassword() + ", email=" + participant1.getEmail()
+				+ ", DNI=" + participant1.getDNI() + ", kind=" + participant1.getKind() 
+				+ ", kindCode=" + participant1.getKindCode() + "]");
 	}
 
 	@Test

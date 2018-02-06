@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import asw.dbManagement.GetParticipant;
 import asw.dbManagement.model.Participant;
 import asw.participants.util.Assert;
-import asw.participants.util.Utilidades;
 import asw.participants.webService.responses.errors.ErrorResponse;
 
 @Controller
@@ -43,17 +42,8 @@ public class GetParticipantInfoHTMLController {
 		Assert.isPasswordCorrect(password, participant);
 
 		session.setAttribute("participant", participant);
-
-		if (!participant.isAdmin() && !participant.isPolitician()) {
-			session.setAttribute("edad", Utilidades.getEdad(participant.getFechaNacimiento()));
-			return "datosParticipant";
-		} else{
-			if(participant.isAdmin())
-				return "dashboardAdmin";
-			else
-				return "dashboardPolitician";
-		}
-
+		
+		return "datosParticipant";
 	}
 
 	@ExceptionHandler(ErrorResponse.class)

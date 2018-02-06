@@ -35,7 +35,7 @@ public class RespuestaInfoREST {
 	}
 
 	
-//..
+//...
 
 	public String getID() {
 		return ID;

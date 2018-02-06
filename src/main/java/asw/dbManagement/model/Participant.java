@@ -19,18 +19,19 @@ public class Participant {
 
 	// Atributos del participante
 	private String nombre;
-	private String apellidos;
+	//private String apellidos;
 	private String password;
-	private Date fechaNacimiento;
+	//private Date fechaNacimiento;
 	@Column(unique = true)
 	private String email;
 	@Column(unique = true)
 	private String DNI;
-	private String direccion;
-	private String nacionalidad;
-
-	private boolean isAdmin;
-	private boolean isPolitician;
+	//private String direccion;
+	//private String nacionalidad;
+	private String kind;
+	private int kindCode;
+	//private boolean isAdmin;
+	//private boolean isPolitician;
 
 	/**
 	 * Constructor vacío (ya que es para mapear)
@@ -50,19 +51,21 @@ public class Participant {
 	 * @param direccion
 	 * @param nacionalidad
 	 */
-	public Participant(String nombre, String apellidos, String password, Date fechaNacimiento, String email, String dNI,
-			String direccion, String nacionalidad, boolean isAdmin, boolean isPolitician) {
+	public Participant(String nombre, String password, String email, String dNI,
+			String kind, int kindCode) {
 		super();
 		this.nombre = nombre;
-		this.apellidos = apellidos;
+		//this.apellidos = apellidos;
 		this.password = password;
-		this.fechaNacimiento = fechaNacimiento;
+		//this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
 		this.DNI = dNI;
-		this.direccion = direccion;
-		this.nacionalidad = nacionalidad;
-		this.isAdmin = isAdmin;
-		this.isPolitician = isPolitician;
+		//this.direccion = direccion;
+		//this.nacionalidad = nacionalidad;
+		//this.isAdmin = isAdmin;
+		//this.isPolitician = isPolitician;
+		this.kind = kind;
+		this.kindCode = kindCode;
 	}
 
 	public Long getId() {
@@ -73,9 +76,9 @@ public class Participant {
 		return nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
-	}
+//	public String getApellidos() {
+//		return apellidos;
+//	}
 
 	public String getPassword() {
 		return password;
@@ -85,9 +88,9 @@ public class Participant {
 		this.password = password;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
+//	public Date getFechaNacimiento() {
+//		return fechaNacimiento;
+//	}
 
 	public String getEmail() {
 		return email;
@@ -101,29 +104,29 @@ public class Participant {
 		return DNI;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
+//	public String getDireccion() {
+//		return direccion;
+//	}
+//
+//	public String getNacionalidad() {
+//		return nacionalidad;
+//	}
 
-	public String getNacionalidad() {
-		return nacionalidad;
-	}
-
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-	public boolean isPolitician() {
-		return isPolitician;
-	}
-
-	public void setPolitician(boolean isPolitician) {
-		this.isPolitician = isPolitician;
-	}
+//	public boolean isAdmin() {
+//		return isAdmin;
+//	}
+//
+//	public void setAdmin(boolean isAdmin) {
+//		this.isAdmin = isAdmin;
+//	}
+//
+//	public boolean isPolitician() {
+//		return isPolitician;
+//	}
+//
+//	public void setPolitician(boolean isPolitician) {
+//		this.isPolitician = isPolitician;
+//	}
 
 	@Override
 	public int hashCode() {
@@ -152,9 +155,10 @@ public class Participant {
 
 	@Override
 	public String toString() {
-		return "Participant [nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", DNI=" + DNI + ", direccion="
-				+ direccion + ", nacionalidad=" + nacionalidad + ", isAdmin=" + isAdmin + ", isPolitician="
-				+ isPolitician + "]";
+		return "Participant [id=" + id + ", nombre=" + nombre + ", password=" + password + ", email=" + email + ", DNI="
+				+ DNI + ", kind=" + kind + ", kindCode=" + kindCode + "]";
 	}
+
+
 
 }

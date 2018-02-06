@@ -28,6 +28,7 @@ public class Application {
 	@Bean
 	public CommandLineRunner initDB(ParticipantRepository repository) throws ParseException {
 		// Formato para la fecha
+		//aasas
 		DateFormat formatter1 = new SimpleDateFormat("mm/DD/yyyy");
 
 		return (args) -> {

@@ -82,6 +82,8 @@ public class MainTest {
 		assertEquals(participant1.toString(),
 				"Participant [id=" + participant1.getId() + ", nombre=" + participant1.getNombre() 
 				+ ", password=" + participant1.getPassword() + ", email=" + participant1.getEmail()
+				+ ", ubicacion=" + participant1.getUbicacion()
+				+ ", identificador=" + participant1.getIdentificador()
 				+ ", kind=" + participant1.getKind() 
 				+ ", kindCode=" + participant1.getKindCode() + "]");
 	}
@@ -100,15 +102,15 @@ public class MainTest {
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("paco@hotmail.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Paco\",\"lastName\":\"Gómez\",\"edad\":46,\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\"}"));
+				"{\"firstName\":\"Paco\",\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\"}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("pepe@gmail.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Pepe\",\"lastName\":\"Fernández\",\"edad\":41,\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\"}"));
+				"{\"firstName\":\"Pepe\",\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\"}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("carmen@yahoo.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Carmen\",\"lastName\":\"López\",\"edad\":46,\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\"}"));
+				"{\"firstName\":\"Carmen\",\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\"}"));
 	}
 
 	@Test
@@ -444,7 +446,10 @@ public class MainTest {
 						+ "<h1>Login</h1><formmethod=\"POST\"action=\"login\"><table><tr><td><labelfor=\"email\">"
 						+ "<strong>Usuario:</strong></label></td><td><inputtype=\"text\"id=\"email\"name=\"email\"/>"
 						+ "</td></tr><tr><td><labelfor=\"password\"><strong>Contraseña:</strong></label></td><td>"
-						+ "<inputtype=\"password\"id=\"password\"name=\"password\"/></td></tr><tr><td><buttontype="
+						+ "<inputtype=\"password\"id=\"password\"name=\"password\"/></td></tr><tr>" + 
+						"<td><label for=\"kind\"><strong>Tipo de Agente:</strong> </label></td>" + 
+						"<td><input type=\"text\" id=\"kind\" name=\"kind\" /></td>" + 
+						"</tr><tr><td><buttontype="
 						+ "\"submit\"id=\"login\">Entrar</button></td></tr></table></form></body></html>").replace(" ",
 								"")));
 	}

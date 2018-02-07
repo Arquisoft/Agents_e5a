@@ -15,24 +15,16 @@ public class Agent {
 	@GeneratedValue
 	private Long id;
 
-	// Atributos del participante
+	// Atributos del agent
 	private String nombre;
-	//private String apellidos;
 	private String password;
-	//private Date fechaNacimiento;
 	@Column(unique = true)
 	private String email;
-	
 	private String ubicacion;
-	//@Column(unique = true)
-	//private String DNI;
 	private String identificador;
-	//private String direccion;
-	//private String nacionalidad;
 	private String kind;
 	private int kindCode;
-	//private boolean isAdmin;
-	//private boolean isPolitician;
+	
 
 	/**
 	 * Constructor vacío (ya que es para mapear)
@@ -54,15 +46,9 @@ public class Agent {
 			String kind, int kindCode) {
 		super();
 		this.nombre = nombre;
-		//this.apellidos = apellidos;
 		this.password = password;
-		//this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
 		this.identificador = identificador;
-		//this.direccion = direccion;
-		//this.nacionalidad = nacionalidad;
-		//this.isAdmin = isAdmin;
-		//this.isPolitician = isPolitician;
 		this.ubicacion = ubicacion;
 		this.kind = kind;
 		this.kindCode = kindCode;
@@ -76,9 +62,7 @@ public class Agent {
 		return nombre;
 	}
 
-//	public String getApellidos() {
-//		return apellidos;
-//	}
+
 
 	public String getPassword() {
 		return password;
@@ -88,9 +72,7 @@ public class Agent {
 		this.password = password;
 	}
 
-//	public Date getFechaNacimiento() {
-//		return fechaNacimiento;
-//	}
+
 
 	public String getEmail() {
 		return email;
@@ -99,34 +81,7 @@ public class Agent {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-//
-//	public String getDNI() {
-//		return DNI;
-//	}
 
-//	public String getDireccion() {
-//		return direccion;
-//	}
-//
-//	public String getNacionalidad() {
-//		return nacionalidad;
-//	}
-
-//	public boolean isAdmin() {
-//		return isAdmin;
-//	}
-//
-//	public void setAdmin(boolean isAdmin) {
-//		this.isAdmin = isAdmin;
-//	}
-//
-//	public boolean isPolitician() {
-//		return isPolitician;
-//	}
-//
-//	public void setPolitician(boolean isPolitician) {
-//		this.isPolitician = isPolitician;
-//	}
 
 	public String getKind() {
 		return kind;

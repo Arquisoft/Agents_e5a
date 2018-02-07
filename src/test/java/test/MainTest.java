@@ -82,7 +82,7 @@ public class MainTest {
 		assertEquals(participant1.toString(),
 				"Participant [id=" + participant1.getId() + ", nombre=" + participant1.getNombre() 
 				+ ", password=" + participant1.getPassword() + ", email=" + participant1.getEmail()
-				+ ", DNI=" + participant1.getDNI() + ", kind=" + participant1.getKind() 
+				+ ", kind=" + participant1.getKind() 
 				+ ", kindCode=" + participant1.getKindCode() + "]");
 	}
 

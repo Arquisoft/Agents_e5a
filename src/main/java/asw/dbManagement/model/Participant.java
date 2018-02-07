@@ -22,8 +22,11 @@ public class Participant {
 	//private Date fechaNacimiento;
 	@Column(unique = true)
 	private String email;
-	@Column(unique = true)
-	private String DNI;
+	
+	private String ubicacion;
+	//@Column(unique = true)
+	//private String DNI;
+	private String identificador;
 	//private String direccion;
 	//private String nacionalidad;
 	private String kind;
@@ -47,7 +50,7 @@ public class Participant {
 	 * @param kind
 	 * @param kindCode
 	 */
-	public Participant(String nombre, String password, String email, String dNI,
+	public Participant(String nombre, String password, String email, String identificador, String ubicacion,
 			String kind, int kindCode) {
 		super();
 		this.nombre = nombre;
@@ -55,11 +58,12 @@ public class Participant {
 		this.password = password;
 		//this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
-		this.DNI = dNI;
+		this.identificador = identificador;
 		//this.direccion = direccion;
 		//this.nacionalidad = nacionalidad;
 		//this.isAdmin = isAdmin;
 		//this.isPolitician = isPolitician;
+		this.ubicacion = ubicacion;
 		this.kind = kind;
 		this.kindCode = kindCode;
 	}
@@ -95,10 +99,10 @@ public class Participant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getDNI() {
-		return DNI;
-	}
+//
+//	public String getDNI() {
+//		return DNI;
+//	}
 
 //	public String getDireccion() {
 //		return direccion;
@@ -140,6 +144,22 @@ public class Participant {
 		this.kindCode = kindCode;
 	}
 
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public String getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -167,9 +187,12 @@ public class Participant {
 
 	@Override
 	public String toString() {
-		return "Participant [id=" + id + ", nombre=" + nombre + ", password=" + password + ", email=" + email + ", DNI="
-				+ DNI + ", kind=" + kind + ", kindCode=" + kindCode + "]";
+		return "Participant [id=" + id + ", nombre=" + nombre + ", password=" + password + ", email=" + email
+				+ ", ubicacion=" + ubicacion + ", identificador=" + identificador + ", kind=" + kind + ", kindCode="
+				+ kindCode + "]";
 	}
+
+	
 
 
 

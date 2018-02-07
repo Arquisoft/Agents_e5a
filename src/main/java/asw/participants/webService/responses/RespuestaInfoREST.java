@@ -16,7 +16,7 @@ public class RespuestaInfoREST {
 	
 	public RespuestaInfoREST(Participant participant){
 		setFirstName(participant.getNombre());
-		setID(participant.getDNI());
+		setID(participant.getIdentificador());
 		setEmail(participant.getEmail());
 //		this.firstName = participant.getNombre();
 //		this.lastName = participant.getApellidos();

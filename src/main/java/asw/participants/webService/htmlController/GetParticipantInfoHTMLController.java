@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import asw.dbManagement.GetParticipant;
-import asw.dbManagement.model.Participant;
+import asw.dbManagement.GetAgent;
+import asw.dbManagement.model.Agent;
 import asw.participants.util.Assert;
 import asw.participants.webService.responses.errors.ErrorResponse;
 
@@ -21,7 +21,7 @@ import asw.participants.webService.responses.errors.ErrorResponse;
 public class GetParticipantInfoHTMLController {
 
 	@Autowired
-	private GetParticipant getParticipant;
+	private GetAgent getParticipant;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String inicalicerLogin(Model model) {
@@ -37,7 +37,7 @@ public class GetParticipantInfoHTMLController {
 		Assert.isPasswordEmpty(password);
 		Assert.isKindNull(kind);
 
-		Participant participant = getParticipant.getParticipant(email);
+		Agent participant = getParticipant.getParticipant(email);
 
 		Assert.isParticipantNull(participant);
 		Assert.isPasswordCorrect(password, participant);

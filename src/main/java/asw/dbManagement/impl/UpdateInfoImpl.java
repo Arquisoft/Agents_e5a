@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import asw.dbManagement.UpdateInfo;
-import asw.dbManagement.model.Participant;
-import asw.dbManagement.repository.ParticipantRepository;
+import asw.dbManagement.model.Agent;
+import asw.dbManagement.repository.AgentRepository;
 
 @Service
 public class UpdateInfoImpl implements UpdateInfo {
 
-	private ParticipantRepository repository;
+	private AgentRepository repository;
 	
 	@Autowired
-	public UpdateInfoImpl(ParticipantRepository repository) {
+	public UpdateInfoImpl(AgentRepository repository) {
 		this.repository = repository;
 	}
 	
@@ -23,7 +23,7 @@ public class UpdateInfoImpl implements UpdateInfo {
 	 * la actual coincida con la del participante
 	 */
 	@Override
-	public void updatePassword(Participant participant, String password, String newPassword) {
+	public void updatePassword(Agent participant, String password, String newPassword) {
 		
 		if (password != null && newPassword != null && !(password.equals(newPassword))
 				&& participant.getPassword().equals(password)) {
@@ -38,7 +38,7 @@ public class UpdateInfoImpl implements UpdateInfo {
 	 * Se comprueba que el email no esté vacío
 	 */
 	@Override
-	public void updateEmail(Participant participant, String email) {
+	public void updateEmail(Agent participant, String email) {
 		if(email != null){
 			participant.setEmail(email);
 			this.repository.save(participant);

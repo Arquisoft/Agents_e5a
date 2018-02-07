@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Participant")
-public class Participant {
+public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
 	@Id
@@ -37,7 +37,7 @@ public class Participant {
 	/**
 	 * Constructor vacío (ya que es para mapear)
 	 */
-	Participant() {
+	Agent() {
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Participant {
 	 * @param kind
 	 * @param kindCode
 	 */
-	public Participant(String nombre, String password, String email, String identificador, String ubicacion,
+	public Agent(String nombre, String password, String email, String identificador, String ubicacion,
 			String kind, int kindCode) {
 		super();
 		this.nombre = nombre;
@@ -176,7 +176,7 @@ public class Participant {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Participant other = (Participant) obj;
+		Agent other = (Agent) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

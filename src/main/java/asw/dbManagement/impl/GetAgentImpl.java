@@ -3,18 +3,18 @@ package asw.dbManagement.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import asw.dbManagement.GetParticipant;
-import asw.dbManagement.model.Participant;
-import asw.dbManagement.repository.ParticipantRepository;
+import asw.dbManagement.GetAgent;
+import asw.dbManagement.model.Agent;
+import asw.dbManagement.repository.AgentRepository;
 
 
 @Service
-public class GetParticipantImpl implements GetParticipant {
+public class GetAgentImpl implements GetAgent {
 	
-	private ParticipantRepository repository;
+	private AgentRepository repository;
 	
 	@Autowired
-	public GetParticipantImpl(ParticipantRepository repository) {
+	public GetAgentImpl(AgentRepository repository) {
 		this.repository = repository;
 	}
 	
@@ -24,7 +24,7 @@ public class GetParticipantImpl implements GetParticipant {
 	 * Hace uso del método findByEmail (mapeador)
 	 */
 	@Override
-	public Participant getParticipant(String email) {
+	public Agent getParticipant(String email) {
 		
 		return this.repository.findByEmail(email);
 	}

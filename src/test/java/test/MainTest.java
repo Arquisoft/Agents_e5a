@@ -34,11 +34,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import asw.Application;
+import asw.agents.webService.request.PeticionChangeEmailREST;
+import asw.agents.webService.request.PeticionChangePasswordREST;
+import asw.agents.webService.request.PeticionInfoREST;
 import asw.dbManagement.GetAgent;
 import asw.dbManagement.model.Agent;
-import asw.participants.webService.request.PeticionChangeEmailREST;
-import asw.participants.webService.request.PeticionChangePasswordREST;
-import asw.participants.webService.request.PeticionInfoREST;
 
 @SuppressWarnings("deprecation")
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -55,7 +55,7 @@ public class MainTest {
 	private RestTemplate template;
 
 	@Autowired
-	private GetAgent getParticipant;
+	private GetAgent getAgent;
 
 	@Before
 	public void setUp() throws Exception {
@@ -65,38 +65,38 @@ public class MainTest {
 
 	@Test
 	public void T1domainModelEqualsTest() {
-		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
-		Agent participant2 = getParticipant.getParticipant("pac@hotmail.com");
-		Agent participant3 = getParticipant.getParticipant("paco@hotmail.com");
-		Agent participant4 = getParticipant.getParticipant("pepe@gmail.com");
-		assertFalse(participant1.equals(participant2));
-		assertFalse(participant1.equals(4));
-		assertTrue(participant1.equals(participant3));
-		assertTrue(participant1.equals(participant1));
-		assertFalse(participant1.equals(participant4));
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent2 = getAgent.getAgent("pac@hotmail.com");
+		Agent agent3 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent4 = getAgent.getAgent("pepe@gmail.com");
+		assertFalse(agent1.equals(agent2));
+		assertFalse(agent1.equals(4));
+		assertTrue(agent1.equals(agent3));
+		assertTrue(agent1.equals(agent1));
+		assertFalse(agent1.equals(agent4));
 	}
 
 	@Test
 	public void T2domainModelToString() {
-		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
-		assertEquals(participant1.toString(),
-				"Participant [id=" + participant1.getId() + ", nombre=" + participant1.getNombre() 
-				+ ", password=" + participant1.getPassword() + ", email=" + participant1.getEmail()
-				+ ", ubicacion=" + participant1.getUbicacion()
-				+ ", identificador=" + participant1.getIdentificador()
-				+ ", kind=" + participant1.getKind() 
-				+ ", kindCode=" + participant1.getKindCode() + "]");
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		assertEquals(agent1.toString(),
+				"Agent [id=" + agent1.getId() + ", nombre=" + agent1.getNombre() 
+				+ ", password=" + agent1.getPassword() + ", email=" + agent1.getEmail()
+				+ ", ubicacion=" + agent1.getUbicacion()
+				+ ", identificador=" + agent1.getIdentificador()
+				+ ", kind=" + agent1.getKind() 
+				+ ", kindCode=" + agent1.getKindCode() + "]");
 	}
 
 	@Test
 	public void T3domainModelHashCodeTest() {
-		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
-		Agent participant3 = getParticipant.getParticipant("paco@hotmail.com");
-		assertEquals(participant1.hashCode(), participant3.hashCode());
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent3 = getAgent.getAgent("paco@hotmail.com");
+		assertEquals(agent1.hashCode(), agent3.hashCode());
 	}
 
 	@Test
-	public void T4participantExistAndCorrectPasssword() {
+	public void T4agentExistAndCorrectPasssword() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/user";
 
@@ -114,7 +114,7 @@ public class MainTest {
 	}
 
 	@Test
-	public void T5participantDoNotExist() {
+	public void T5agentDoNotExist() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/user";
 		String userNotFound = "{\"reason\": \"User not found\"}";
@@ -398,7 +398,7 @@ public class MainTest {
 	}
 
 	@Test
-	public void T22notFoundParticipantPasswordChange() {
+	public void T22notFoundAgentPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changePassword";
 		String userNotFound = "{\"reason\": \"User not found\"}";
@@ -459,17 +459,17 @@ public class MainTest {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changeEmail";
 		
-		String correctChange = "{\"participant\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		String correctChange = "{\"agent\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("paco@hotmail.com", "123456", "pac@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
 
-		correctChange = "{\"participant\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		correctChange = "{\"agent\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("pepe@gmail.com", "123456", "pepe@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
 
-		correctChange = "{\"participant\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		correctChange = "{\"agent\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("carmen@yahoo.com", "123456", "fhfyg@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
@@ -479,7 +479,7 @@ public class MainTest {
 	public void correctPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changePassword";
-		String correctPassword = "{\"participant\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
+		String correctPassword = "{\"agent\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
 
 		response = template.postForEntity(userURI,
 				new PeticionChangePasswordREST("isabel@gmail.com", "123456", "djfhr"), String.class);
@@ -492,7 +492,7 @@ public class MainTest {
 		String userURI = base.toString() + "/changePassword";
 		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
 				+ "<ChangeInfoResponse><message>contraseÃ±a actualizada correctamente</message>"
-				+ "<participant>isabel@gmail.com</participant></ChangeInfoResponse>";
+				+ "<agent>isabel@gmail.com</agent></ChangeInfoResponse>";
 
 		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
 		interceptors.add(new AcceptInterceptor());
@@ -510,7 +510,7 @@ public class MainTest {
 		String userURI = base.toString() + "/changeEmail";
 		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
 				+ "<ChangeInfoResponse><message>email actualizado correctamente</message>"
-				+ "<participant>carmen@yahoo.com</participant></ChangeInfoResponse>";
+				+ "<agent>carmen@yahoo.com</agent></ChangeInfoResponse>";
 
 		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
 		interceptors.add(new AcceptInterceptor());

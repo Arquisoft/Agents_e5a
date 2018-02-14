@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Participant")
+@Table(name = "Agent")
 public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
@@ -142,7 +142,7 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Participant [id=" + id + ", nombre=" + nombre + ", password=" + password + ", email=" + email
+		return "Agent [id=" + id + ", nombre=" + nombre + ", password=" + password + ", email=" + email
 				+ ", ubicacion=" + ubicacion + ", identificador=" + identificador + ", kind=" + kind + ", kindCode="
 				+ kindCode + "]";
 	}

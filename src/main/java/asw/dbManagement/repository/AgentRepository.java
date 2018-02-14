@@ -9,10 +9,10 @@ import asw.dbManagement.model.Agent;
 public interface AgentRepository extends JpaRepository<Agent, Long> {
 	
 	/**
-	 * Método que devuelve el Participante el cual es buscado por email
+	 * Método que devuelve el Agente el cual es buscado por email
 	 * en la base de datos
-	 * @param email del Partipante
-	 * @return El Participante con dicho email
+	 * @param email del Agente
+	 * @return El Agente con dicho email
 	 */
 	public Agent findByEmail(String email);
 	

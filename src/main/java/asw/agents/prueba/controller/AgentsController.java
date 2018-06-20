@@ -94,7 +94,7 @@ public class AgentsController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String loginPost(@RequestParam String email, @RequestParam String password, @RequestParam String type) {
 		Agent agent = agentsService.getAgent(email);
 		if (agent == null || !agent.getKind().equals(type))
@@ -105,7 +105,7 @@ public class AgentsController {
 			e.printStackTrace();
 			return "redirect:/login?error";
 		}
-		return "redirect:/";
+		return "profile";
 	}
 
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)

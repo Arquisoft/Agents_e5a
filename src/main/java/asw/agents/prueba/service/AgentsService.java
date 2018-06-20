@@ -39,5 +39,12 @@ public class AgentsService {
 				return null;
 		}
 	}
+	/**
+	 * Metodo que actualiza el agente pasado por parametro
+	 * @param agent, el agente con la informacion actualizada para ser guardado por la base de datos
+	 */
+	public void updateAgent(Agent agent) {
+		agentsRepository.save(agent);
+	}
 
 }

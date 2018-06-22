@@ -1,4 +1,4 @@
-package asw.agents.prueba.entities;
+package asw.agents.entities;
 
 public interface AgentInterface {
 

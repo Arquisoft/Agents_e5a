@@ -1,4 +1,4 @@
-package asw.agents.prueba.controller;
+package asw.agents.controllers;
 
 import java.security.Principal;
 import java.util.Map;
@@ -22,11 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import asw.agents.prueba.entities.Agent;
-import asw.agents.prueba.entities.AgentInterface;
-import asw.agents.prueba.entities.RESTError;
-import asw.agents.prueba.service.AgentsService;
-import asw.agents.prueba.service.SecurityService;
+import asw.agents.entities.Agent;
+import asw.agents.entities.AgentInterface;
+import asw.agents.entities.RESTError;
+import asw.agents.service.AgentsService;
+import asw.agents.service.SecurityService;
+
+
 
 @Controller
 public class AgentsController {
@@ -79,13 +81,13 @@ public class AgentsController {
 		return "profile";
 	}
 	
-	@PostMapping(value="/profile/cambiarContraseña")
-	public String cambiarContraseña(Model model, @ModelAttribute Agent agente, @RequestParam String email, @RequestParam String password)
+	@PostMapping(value="/profile/cambiarContrasena")
+	public String cambiarContraseña(Model model, @ModelAttribute Agent agente, @RequestParam String password)
 	{
-		Agent original=agentsService.getAgent(email);
-		original.setPassword(password);
-		agentsService.updateAgent(original);
-		return "redirect:/";
+		Agent agent = agente;
+		agent.setPassword(password);
+		agentsService.updateAgent(agent);
+		return "redirect:/profile";
 				
 	}
 
@@ -95,8 +97,9 @@ public class AgentsController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String loginPost(@RequestParam String email, @RequestParam String password, @RequestParam String type) {
+	public String loginPost(@RequestParam String email, @RequestParam String password, @RequestParam String type, Model model) {
 		Agent agent = agentsService.getAgent(email);
+		model.addAttribute("agent", agent);
 		if (agent == null || !agent.getKind().equals(type))
 			return "redirect:/login?error";
 		try {

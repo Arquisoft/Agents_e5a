@@ -1,21 +1,17 @@
-package asw.agents.prueba.service;
+package asw.agents.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import asw.agents.prueba.entities.Agent;
-import asw.agents.prueba.repository.AgentsRepository;
+import asw.agents.entities.Agent;
+import asw.agents.repository.AgentsRepository;
+
 
 @Service
 public class AgentsService {
 	
 	@Autowired
 	private AgentsRepository agentsRepository;
-	
-//	public String encripta(String usuario, String password, String kind) {
-//		String pass = password + kind + usuario;
-//		return String.valueOf(pass.hashCode());
-//	}
 	
 	/**
 	 * Método que devuelve el Agente buscado por email
@@ -44,6 +40,7 @@ public class AgentsService {
 	 * @param agent, el agente con la informacion actualizada para ser guardado por la base de datos
 	 */
 	public void updateAgent(Agent agent) {
+		System.out.println(agent.getPassword());
 		agentsRepository.save(agent);
 	}
 

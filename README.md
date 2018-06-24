@@ -124,7 +124,7 @@ Además el módulo proporciona una interfaz de inicio sesión introduciendo emai
 
 
   
-#Ejecutar el proyecto
+# Ejecutar el proyecto
 
 A la hora de ejecutar el proyecto podemos ejecutarlo usando Maven (si lo tenemos instalado) abriendo una ventana de comandos en la carpeta del proyecto y ejecutando mvn spring-boot:run
 Tambien se podría ejecutar a través de eclipse. Una vez arrancada la aplicación accedemos a localhost:8080 y vemos ya el formulario de login. 

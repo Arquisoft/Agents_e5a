@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  
+  agents:
+    build:
+      context: .
+    image: agents_e5a
+    ports:
+      - "8001:8080"

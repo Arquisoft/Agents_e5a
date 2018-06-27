@@ -1,4 +1,4 @@
-package asw.agents.controllers;
+package uo.asw.controllers;
 
 import java.security.Principal;
 import java.util.Map;
@@ -22,11 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import asw.agents.entities.Agent;
-import asw.agents.entities.AgentInterface;
-import asw.agents.entities.RESTError;
-import asw.agents.service.AgentsService;
-import asw.agents.service.SecurityService;
+import uo.asw.entities.Agent;
+import uo.asw.entities.AgentInterface;
+import uo.asw.entities.RESTError;
+import uo.asw.service.AgentsService;
+import uo.asw.service.SecurityService;
 
 
 
@@ -87,7 +87,7 @@ public class AgentsController {
 		Agent agent = agente;
 		agent.setPassword(password);
 		agentsService.updateAgent(agent);
-		return "redirect:/profile";
+		return "redirect:/profile?ok";
 				
 	}
 

@@ -1,10 +1,10 @@
-package asw.agents.repository;
+package uo.asw.repository;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import asw.agents.entities.Agent;
+import uo.asw.entities.Agent;
 
 
 

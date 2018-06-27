@@ -1,4 +1,4 @@
-package asw.agents.entities;
+package uo.asw.entities;
 
 import javax.persistence.Id;
 

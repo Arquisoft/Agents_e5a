@@ -21,7 +21,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							
+
 							<td th:text="${agent.email}">Email del agente</td>
 							<td><input type="password" name="password" /></td>
 							<td><input type="submit" name="cambiar"
@@ -31,6 +31,8 @@
 				</table>
 			</div>
 		</form>
+		<span class="text" th:if="${param.ok}"
+			th:text="#{change.ok}" />
 	</div>
 	<footer th:replace="fragments/footer" />
 </body>

@@ -28,9 +28,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
-import asw.Application;
-import asw.agents.entities.Agent;
-import asw.agents.service.AgentsService;
+import uo.Application;
+import uo.asw.entities.Agent;
+import uo.asw.service.AgentsService;
 
 
 @SuppressWarnings("deprecation")

@@ -1,4 +1,4 @@
-package asw.agents.service;
+package uo.asw.service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import asw.agents.entities.Agent;
-import asw.agents.repository.AgentsRepository;
+import uo.asw.entities.Agent;
+import uo.asw.repository.AgentsRepository;
 
 
 
